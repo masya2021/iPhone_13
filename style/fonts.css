@@ -1,0 +1,29 @@
+@font-face {
+    font-family: 'SF UI Text';
+    src: local('SF UI Text'),
+    url('../assets/fonts/SFUIText-Light.woff') format('woff'),
+    url('../assets/fonts/SFUIText-Light.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;       /* отмена дерганій і т.п */
+}
+
+@font-face {
+    font-family: 'SF UI Text';
+    src: local('SF UI Text'),
+    url('../assets/fonts/SFUIText-Regular.woff') format('woff'),
+    url('../assets/fonts/SFUIText-Regular.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;       /* отмена дерганій і т.п */
+}
+
+@font-face {
+    font-family: 'SF UI Text';
+    src: local('SF UI Text'),
+    url('../assets/fonts/SFUIText-Medium.woff') format('woff'),
+    url('../assets/fonts/SFUIText-Medium.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;       /* отмена дерганій і т.п */
+}
