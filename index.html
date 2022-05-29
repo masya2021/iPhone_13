@@ -58,14 +58,30 @@
 
                 <ul class="features__list">
                     <li class="features__item card">
-                        <img class="card__image" src="./assets/img/about/camera.jpg" alt="new module camera">
+                        <picture>
+                            <source type="image/avif"
+                                srcset="./assets/img/about/avif/camera.avif 1x, ./assets/img/about/avif/2xcamera.avif 2x">
+                            <source type="image/webp"
+                                srcset="./assets/img/about/webp/camera.webp 1x, ./assets/img/about/webp/2xcamera.webp 2x">
+
+                            <img class="card__image" src="./assets/img/about/camera.jpg"
+                                srcset="./assets/img/about/2xcamera.jpg 2x" alt="new module camera">
+                        </picture>
 
                         <h3 class="card__title">Камера</h3>
 
                         <p class="card__description">Система камер PRO.</p>
                     </li>
                     <li class="features__item card">
-                        <img class="card__image" src="./assets/img/about/compect.jpg" alt="equipment">
+                        <picture>
+                            <source type="image/avif"
+                                srcset="./assets/img/about/avif/compect.avif 1x, ./assets/img/about/avif/2xcompect.avif 2x">
+                            <source type="image/webp"
+                                srcset="./assets/img/about/webp/compect.webp 1x, ./assets/img/about/webp/2xcompect.webp 2x">
+
+                            <img class="card__image" src="./assets/img/about/compect.jpg"
+                                srcset="./assets/img/about/2xcompect.jpg 2x" alt="equipment">
+                        </picture>
 
                         <h3 class="card__title">Комплектация</h3>
 
@@ -73,7 +89,15 @@
                             Беспроводные наушники.</p>
                     </li>
                     <li class="features__item card">
-                        <img class="card__image" src="./assets/img/about/color.jpg" alt="new colors phone">
+                        <picture>
+                            <source type="image/avif"
+                                srcset="./assets/img/about/avif/color.avif 1x, ./assets/img/about/avif/2xcolor.avif 2x">
+                            <source type="image/webp"
+                                srcset="./assets/img/about/webp/color.webp 1x, ./assets/img/about/webp/2xcolor.webp 2x">
+
+                            <img class="card__image" src="./assets/img/about/color.jpg"
+                                srcset="./assets/img/about/2xcolor.jpg 2x" alt="new colors phone">
+                        </picture>
 
                         <h3 class="card__title">Цвет</h3>
 
@@ -81,14 +105,30 @@
                             Графитовый.</p>
                     </li>
                     <li class="features__item card">
-                        <img class="card__image" src="./assets/img/about/frame.jpg" alt="new frame">
+                        <picture>
+                            <source type="image/avif"
+                                srcset="./assets/img/about/avif/frame.avif 1x, ./assets/img/about/avif/2xframe.avif 2x">
+                            <source type="image/webp"
+                                srcset="./assets/img/about/webp/frame.webp 1x, ./assets/img/about/webp/2xframe.webp 2x">
+
+                            <img class="card__image" src="./assets/img/about/frame.jpg"
+                                srcset="./assets/img/about/2xframe.jpg 2x" alt="new frame">
+                        </picture>
 
                         <h3 class="card__title">Корпус</h3>
 
                         <p class="card__description">Водонипроницаемый и противоударный корпус.</p>
                     </li>
                     <li class="features__item card">
-                        <img class="card__image" src="./assets/img/about/line.jpg" alt="new line iPhone">
+                        <picture>
+                            <source type="image/avif"
+                                srcset="./assets/img/about/avif/line.avif 1x, ./assets/img/about/avif/2xline.avif 2x">
+                            <source type="image/webp"
+                                srcset="./assets/img/about/webp/line.webp 1x, ./assets/img/about/webp/2xline.webp 2x">
+
+                            <img class="card__image" src="./assets/img/about/line.jpg"
+                                srcset="./assets/img/about/2xline.jpg 2x" alt="new line iPhone">
+                        </picture>
 
                         <h3 class="card__title">Линейка</h3>
 
@@ -96,7 +136,15 @@
                             iPhone 13 Pro и 13 Pro Max.</p>
                     </li>
                     <li class="features__item card">
-                        <img class="card__image" src="./assets/img/about/charger_magnetic.jpg" alt="new type charger">
+                        <picture>
+                            <source type="image/avif"
+                                srcset="./assets/img/about/avif/charger_magnetic.avif 1x, ./assets/img/about/avif/2xcharger_magnetic.avif 2x">
+                            <source type="image/webp"
+                                srcset="./assets/img/about/webp/charger_magnetic.webp 1x, ./assets/img/about/webp/2xcharger_magnetic.webp 2x">
+
+                            <img class="card__image" src="./assets/img/about/charger_magnetic.jpg"
+                                srcset="./assets/img/about/2xcharger_magnetic.jpg 2x" alt="new type charger">
+                        </picture>
 
                         <h3 class="card__title">Зарядка </h3>
 
@@ -112,7 +160,7 @@
 
                 <form action="#" class="order__form form">
                     <fieldset class="form__box">
-                        <legent class="form__title-box">Персональные данные</legent>
+                        <legend class="form__title-box">Персональные данные</legend>
 
                         <label for="fullName" class="form__label">ФИО</label>
                         <input type="text" class="form__input" id="fullName" name="fullName">
@@ -126,7 +174,7 @@
                     </fieldset>
 
                     <fieldset class="form__box">
-                        <legent class="form__title-box">Адрес доставки</legent>
+                        <legend class="form__title-box">Адрес доставки</legend>
 
                         <label for="city" class="form__label">Город</label>
                         <input type="text" class="form__input" id="city" name="city">
@@ -140,7 +188,7 @@
                     </fieldset>
 
                     <fieldset class="form__box">
-                        <legent class="form__title-box">Выбор модели</legent>
+                        <legend class="form__title-box">Выбор модели</legend>
 
                         <label for="model" class="form__label">Модель</label>
                         <select name="model" class="form__select" id="model">
@@ -166,7 +214,7 @@
                     </fieldset>
 
                     <fieldset class="form__box">
-                        <legent class="form__title-box">Аксессуары</legent>
+                        <legend class="form__title-box">Аксессуары</legend>
 
                         <label class="form__label checkbox">
                             <input type="checkbox" name="accessories" id="case">Чехол
