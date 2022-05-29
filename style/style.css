@@ -12,6 +12,8 @@ html {
   }
   
   body {
+    margin: 0;
+
     min-width: 320px;
     min-height: 100vh;
   
@@ -33,7 +35,6 @@ html {
   button {
     padding: 0;
     cursor: pointer;
-    border: none;
   }
   
   a {
@@ -64,17 +65,16 @@ html {
   Доступно скрываю элементы
   */
   
-  .visually-hidden {
+  /* .visually-hidden {
     position: absolute !important;
-    clip: rect(1px 1px 1px 1px);
-    /* IE6, IE7 */
-    clip: rect(1px, 1px, 1px, 1px);
+    clip: rect(1px 1px 1px 1px);     IE6, IE7 */
+    /* clip: rect(1px, 1px, 1px, 1px);
     padding: 0 !important;
     border: 0 !important;
     height: 1px !important;
     width: 1px !important;
     overflow: hidden;
-  }
+  } */
   
   /*
   Пример контейнера
@@ -102,9 +102,9 @@ html {
          /* end reset */
 
 .container {
-    max-width: 1600px;
+    max-width: 1350px;
 	margin: 0 auto;
-	padding: 0 155px;
+	padding: 0 30px;
 }
 
 .btn {
@@ -113,41 +113,102 @@ html {
     padding: 18px 23px;
 
     color: #fff;
-    line-height: 1.15;
-
+    font-size: 20px;
+    line-height: 23px;
+    
+    border: none;
+    cursor: pointer;
     /* flex: none;
     order: 0;
     flex-grow: 0; */
 }
 
+/* ==== media   o f f e r ==== */
+
+@media (max-width: 800px) {
+    .btn {
+       font-size: 18px;
+    }
+    
+}
+
 /* ==== h e a d e r ==== */
 
 .header {
+    padding: 30px 0;
 }
 .header__container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+
     max-width: 1130px;
     margin: 0 auto;
 }
 .header__logo {
+    height: 40px;
 }
 .header__navigation {
     display: flex;
 }
 .navigation {
+    font-weight: 400;
 }
 .navigation__list {
     display: flex;
     flex-wrap: wrap;
-
+    align-items: center;
 }
 .navigation__item {
+    display: flex;
+    align-items: center;
+}
+.navigation__item:not(:last-child):after {
+    content: "";
+    display: block;
+    background-color: #C9C9C9;
+    width: 1px;
+    height: 40px;
+    margin: 0 25px;
 }
 .navigation__link {
+    color: #928f8fd7;
+    transition: .3s color ease-in-out;
 }
+.navigation__link:hover {
+    color: #000;
+    opacity: 0.9;
+}
+.navigation__link:focus {
+    color: #0071E3;
+}
+.navigation__link:active {
+    color: #000;
+}
+
+/* ==== media   h e a d e r ==== */
+
+@media (max-width: 800px) {
+    .header__container {
+        align-items: flex-start;
+    }
+    .navigation {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+    .navigation__list {
+        display: block;
+    }
+    .navigation__item {
+        justify-content: flex-end;
+    }
+    .navigation__item:not(:last-child):after {
+        display: none;
+    }
+}
+
+
 
 /* ==== m a i n ==== */
 
@@ -156,36 +217,130 @@ html {
 }
 .main__section {
 }
+
+/* ==== media   m a i n ==== */
+
+@media (max-width: 800px) {
+    .main {
+        padding: 65px 0 50px;
+    }
+}
+
+/* ==== o f f e r ==== */
+
 .offer {
-    padding-bottom: 140px;
 }
 .offer__container {
+    padding: 30px;
+    margin: 0 -30px;
+
     text-align: center;
+
+    min-height: 820px;
+    /* background-image: url(../assets/img/banner/phones.jpg); */
+    background-image: -webkit-image-set(
+        url("../assets/img/banner/phones-2x.jpg") 2x,
+        url("../assets/img/banner/phones.jpg") 1x
+    );
+    background-image: image-set(
+        url("../assets/img/banner/phones-2x.jpg") 2x,
+        url("../assets/img/banner/phones.jpg") 1x
+    );
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: 1290px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+/* для ретив. дисплеев*/
+/* @media (min-resolution: 2dppx) {
+    .offer__container {
+        background-image: url(../assets/img/banner/phones-2x.jpg);
+    }
+} */
+
+
 .offer__main-title {
-    line-height: 1.15;
+    line-height: 24px;
+    font-weight: 500;
+    font-size: 20px;
+    margin-bottom: 24px;
 }
 .offer__title {
-    padding: 24px 0;
+    /* padding: 24px 0; */
+    line-height: 41px;
+    font-weight: 500;
+    font-size: 34px;
+    margin-bottom: 24px;
 }
 .title {
-    font-weight: 500;
+    /* font-weight: 500;
     font-size: 34px;
     line-height: 1.2;
 
     text-align: center;
 
-    color: #000000;
+    color: #000000; */
 }
 .offer__price {
-    line-height: 1.15;
-    padding-bottom: 32px;
+    line-height: 24px;
+    font-weight: 300;
+    margin-bottom: 32px;
 }
-.offer__btn {
-    margin-bottom: 12.5%;
+
+/* ==== media   o f f e r ==== */
+
+@media (max-width: 800px) {
+    /* .offer__container {
+       background-image: url(../assets/img/banner/phones-800.jpg);
+       background-size: 825px;
+       min-height: 720px;
+    }
+    @media (min-resolution: 2dppx) {
+        .offer__container {
+            background-image: url(../assets/img/banner/phones-800-2x.jpg);
+        }
+    } */
+    .offer__container {
+        background-size: 825px;
+        min-height: 720px;
+        background-image: -webkit-image-set(
+            url("../assets/img/banner/phones-800-2x.jpg") 2x,
+            url("../assets/img/banner/phones-800.jpg") 1x
+        );
+        background-image: image-set(
+            url("../assets/img/banner/phones-800-2x.jpg") 2x,
+            url("../assets/img/banner/phones-800.jpg") 1x
+        );
+    }
+
+    .offer__main-title {
+        font-size: 18px;
+    }
+    .offer__title {
+        font-size: 28px;
+    }
+    .offer__price {
+        font-size: 18px;
+    }
 }
-.btn {
+
+@media (max-width: 442px) {
+    .offer__container {
+        background-image: -webkit-image-set(
+            url("../assets/img/banner/phones-442-2x.jpg") 2x,
+            url("../assets/img/banner/phones-442.jpg") 1x
+        );
+        background-image: image-set(
+            url("../assets/img/banner/phones-442-2x.jpg") 2x,
+            url("../assets/img/banner/phones-442.jpg") 1x
+        );
+       background-size: 355px;
+    }
 }
+
+
 .features {
 }
 .features__title {
@@ -274,4 +429,43 @@ html {
     text-align: end;
     padding: 30px 0;
     gap: 13px;
+}
+.contact__email {
+    color: #fff;
+    transition: .3s color ease-in-out;    
+}
+.contact__email:hover {
+    opacity: 0.5;
+    color: #89b3dd;
+    transition: .3s color ease-in-out;
+}
+.contact__email:focus {
+    color: #89b3dd;
+}
+.contact__email:active {
+    color: #000;
+}
+
+
+/* ==== media   f o o t e r ==== */
+
+@media (max-width: 800px) {
+    .footer__content {
+        padding: 25px 0 24px;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer__content {
+        justify-content: center;
+        flex-direction: column;
+        font-size: 16px;
+    }
+    /* .copyriter {
+        padding-right: 25px;
+    } */
+    .footer__contact {
+        text-align: center;
+        padding-bottom: 0;
+    }
 }
