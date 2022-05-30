@@ -7,11 +7,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iPhone 13</title>
 
+    <link rel="icon" href="./assets/svg/apple_logo.svg">
+
+    <link rel="preload" href="./assets/fonts/SFUIText-Light.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="./assets/fonts/SFUIText-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="./assets/fonts/SFUIText-Medium.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="./style/choices.min.css">
     <link rel="stylesheet" href="./style/normalise.css">
     <link rel="stylesheet" href="./style/fonts.css">
     <link rel="stylesheet" href="./style/style.css">
 
-    <script src="./index.js" defer></script>
+
+    <script src="./js/jquery-3.6.0.min.js" defer></script>
+    <script src="./js/choices.min.js" defer></script>
+    <script src="./js/index.js" defer></script>
 
     <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans+Arabic:100,200,300,regular,500,600,700"
         rel="stylesheet" />
@@ -106,13 +116,15 @@
                     </li>
                     <li class="features__item card">
                         <picture>
-                            <source type="image/avif"
+                            <!-- <source type="image/avif" -->
+                                <!-- srcset="./assets/img/about/avif/frame.avif 1x, ./assets/img/about/avif/2xframe.avif 2x"> -->
+                                <source type="image/avif"
                                 srcset="./assets/img/about/avif/frame.avif 1x, ./assets/img/about/avif/2xframe.avif 2x">
-                            <source type="image/webp"
+                                <source type="image/webp"
                                 srcset="./assets/img/about/webp/frame.webp 1x, ./assets/img/about/webp/2xframe.webp 2x">
 
                             <img class="card__image" src="./assets/img/about/frame.jpg"
-                                srcset="./assets/img/about/2xframe.jpg 2x" alt="new frame">
+                                srcset="./assets/img/about/2xframe 2x" alt="new frame">
                         </picture>
 
                         <h3 class="card__title">Корпус</h3>
@@ -158,32 +170,32 @@
             <div class="container">
                 <h2 class="order__title title">Оформить предзаказ</h2>
 
-                <form action="#" class="order__form form">
+                <form action="https://jsonplaceholder.typicode.com/posts" method="post" class="order__form form" id="form__order">
                     <fieldset class="form__box">
                         <legend class="form__title-box">Персональные данные</legend>
 
-                        <label for="fullName" class="form__label">ФИО</label>
-                        <input type="text" class="form__input" id="fullName" name="fullName">
+                        <label for="fullName" class="form__label">ФИО<sup>*</sup></label>
+                        <input type="text" class="form__input" id="fullName" name="fullName" required>
 
-                        <label for="phone" class="form__label">Телефон</label>
-                        <input type="text" class="form__input" id="phone" name="phone">
+                        <label for="phone" class="form__label">Телефон<sup>*</sup></label>
+                        <input type="text" class="form__input" id="phone" name="phone" required>
 
-                        <label for="email" class="form__label">E-mail</label>
-                        <input type="email" class="form__input" id="email" name="email">
+                        <label for="email" class="form__label">E-mail<sup>*</sup></label>
+                        <input type="email" class="form__input" id="email" name="email" required>
 
                     </fieldset>
 
                     <fieldset class="form__box">
                         <legend class="form__title-box">Адрес доставки</legend>
 
-                        <label for="city" class="form__label">Город</label>
-                        <input type="text" class="form__input" id="city" name="city">
+                        <label for="city" class="form__label">Город<sup>*</sup></label>
+                        <input type="text" class="form__input" id="city" name="city" required>
 
-                        <label for="index" class="form__label">Индекс</label>
-                        <input type="text" class="form__input" id="index" name="index">
+                        <label for="index" class="form__label">Индекс<sup>*</sup></label>
+                        <input type="text" class="form__input" id="index" name="index" required>
 
-                        <label for="address" class="form__label">Адрес</label>
-                        <input type="email" class="form__input" id="address" name="address">
+                        <label for="address" class="form__label">Адрес<sup>*</sup></label>
+                        <input type="text" class="form__input" id="address" name="address" required>
 
                     </fieldset>
 
@@ -198,7 +210,7 @@
                             <option value="iPhone13ProMax">iPhone 13 Pro Max</option>
                         </select>
 
-                        <label for="color" class="form__label">Модель</label>
+                        <label for="color" class="form__label">Цвет</label>
                         <select name="color" class="form__select" id="color">
                             <option value="Pearl">Pearl</option>
                             <option value="Graphite">Graphite</option>
@@ -217,25 +229,28 @@
                         <legend class="form__title-box">Аксессуары</legend>
 
                         <label class="form__label checkbox">
-                            <input type="checkbox" name="accessories" id="case">Чехол
+                            <input class="checkbox__input" type="checkbox" name="accessories" value="case">Чехол
                         </label>
 
                         <label class="form__label checkbox">
-                            <input type="checkbox" name="accessories" id="AirPods">Наушники AirPods 3
+                            <input class="checkbox__input" type="checkbox" name="accessories" value="AirPods">Наушники
+                            AirPods 3
                         </label>
 
                         <label class="form__label checkbox">
-                            <input type="checkbox" name="accessories" id="ptotectGlass">Защитное стекло
+                            <input class="checkbox__input" type="checkbox" name="accessories" value="ptotectGlass">Защитное
+                            стекло
                         </label>
 
                         <label class="form__label checkbox">
-                            <input type="checkbox" name="accessories" id="MagSafe">Зарядное устройство MagSafe
+                            <input class="checkbox__input" type="checkbox" name="accessories" value="MagSafe">Зарядное
+                            устройство MagSafe
                         </label>
 
                     </fieldset>
-
-                    <button type="submit" class="form__submit btn">Оформить</button>
                 </form>
+
+                <button type="submit" class="form__submit btn" form="form__order">Оформить</button>
             </div>
         </section>
     </main>

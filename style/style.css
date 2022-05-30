@@ -60,7 +60,11 @@ html {
   iframe {
     border: none;
   }
-  
+
+  /* input {
+    outline: 0;
+  } */
+
   /*
   Доступно скрываю элементы
   */
@@ -380,13 +384,12 @@ html {
 
     margin-bottom: 80px;
 }
-.order__form {
-}
 .form {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 60px 30px;
+    margin-bottom: 90px;
 }
 .form__box {
     width: 630px;
@@ -425,11 +428,73 @@ html {
 .form__input:last-child {
     margin-bottom: 0;
 }
-.form__select {
-}
 .checkbox {
+    display: block;
+    position: relative;
+    margin-bottom: 26px;
+    padding-left: 70px;
+
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 40px;
+}
+.checkbox__input {
+    position: absolute;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin-left: -70px;
+    outline: 0;
+}
+.checkbox__input::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 40px;
+    height: 40px;
+    /* background-color: yellowgreen; */
+
+    background: #FFFFFF;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    cursor: pointer;
+}
+.checkbox__input::after {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: 11px;
+    display: block; 
+    width: 20px;
+    height: 10px;
+
+    /* border: 3px solid #000;    
+    border-top: none;
+    border-right: none; */
+                 /* or */
+    border-bottom: 3px solid #000;
+    border-left: 3px solid #000;
+
+    transform: rotate(-45deg); 
+    opacity: 0;
+    cursor: pointer;
+}
+.checkbox__input:checked::after {
+    opacity: 1;
+}
+.checkbox__input:focus::before,
+.checkbox__input:hover:not(:disabled):before {
+    box-shadow: 0px 0px 10px rgba(0, 113, 227, 0.5);
+}
+.checkbox__input:disabled::before {
+    background-color: #C9C9C9;
 }
 .form__submit {
+    display: block;
+    margin: 0 auto;
 }
 
 /* ==== media   o r d e r ==== */
@@ -447,12 +512,100 @@ html {
         height: 60px;
     }
 }
+
 @media (max-width: 442px) {
     .form__box {
         padding: 40px 20px 80px;
     }
 }
 
+
+.choices {
+    height: 90px;
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .choices__inner {
+    height: 100%;
+    font-size: 24px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    border: none;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .is-open .choices__inner {
+    position: relative;
+    border-radius: 20px;
+    /* border-top-left-radius: 20px;
+    border-top-right-radius: 20px; */
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    z-index: 1;
+  }
+  
+  .is-open .choices__list--dropdown {
+    border-top: 0px;
+    border-radius: 20px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    /* border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px; */
+    border: none;
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .choices[data-type*=select-one]:after {
+    height: 9px;
+    width: 9px;
+    border-color: transparent transparent #000000 #000000;
+    border-width: 9px;
+    margin-top: -15px; 
+    margin-right: 35px;  
+    transform: rotate(-45deg);
+    z-index: 1;
+    transition: border-color 0.2s ease-in-out, margin-top 0.2s ease-in-out;
+  }
+  
+  .choices[data-type*=select-one].is-open:after {
+    border-color: #000000 #000000 transparent transparent;
+  }
+  
+  
+  .choices__list--dropdown .choices__item {  
+    font-size: 16px;  
+    padding: 20px 15px;
+  }
+  
+  .choices__list--dropdown {
+    margin-top: -5px;
+    z-index: 10;
+  }
+
+  /*  ==== media choices ==== */
+
+  @media (max-width: 800px) {
+    .choices {
+        height: 60px;
+    }
+    .choices[data-type*=select-one]:after {
+        height: 6px;
+        width: 6px;
+        border-width: 6px;
+        margin-top: -10px;
+        margin-right: 10px;
+    }
+    .choices__inner {
+        font-size: 18px;
+        font-weight: 400;
+        padding: 10px;
+    }
+  }
+  
 /* ==== f o o t e r ==== */
 
 .footer {
@@ -517,10 +670,6 @@ html {
         padding-bottom: 0;
     }
 }
-
-
-
-
 
 /* .offer__container {
        background-image: url(../assets/img/banner/phones-800.jpg);
